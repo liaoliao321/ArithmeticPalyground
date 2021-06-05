@@ -116,8 +116,29 @@ public class BST<E extends Comparable<E>> {
             return;
 
         inOrder(node.left);
-        System.out.println(node.e);
+        System.out.print(node.e + " ");
         inOrder(node.right);
+    }
+
+
+    public void inOrderNR() {
+        inOrderNR(root);
+    }
+
+    private void inOrderNR(Node node) {
+        Stack<Node> stack = new Stack<>();
+        Node cur = node;
+        while (!stack.empty() || cur != null) {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            if (!stack.isEmpty()) {
+                Node n = stack.pop();
+                System.out.print(n.e + " ");
+                cur = n.right;
+            }
+        }
     }
 
     public List<E> _inOrder() {
@@ -149,7 +170,40 @@ public class BST<E extends Comparable<E>> {
 
         postOrder(node.left);
         postOrder(node.right);
-        System.out.println(node.e);
+        System.out.print(node.e+" ");
+    }
+
+    public void postOrderNR() {
+        postOrderNR(root);
+    }
+
+    private void postOrderNR(Node node) {
+        Stack<Node> stack = new Stack<>();
+        Node cur = node;
+        Node r = null;
+        boolean flag;
+        do {
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            r = null;
+            flag = true;
+            while (!stack.isEmpty() && flag) {
+
+                Node n = stack.peek();
+                if (n.right == r) {
+                    System.out.print(n.e + " ");
+                    stack.pop();
+                    r = n;
+                } else {
+                    cur = n.right;
+                    flag = false;
+                }
+            }
+        } while (!stack.isEmpty());
+
+
     }
 
     // 二分搜索树的层序遍历

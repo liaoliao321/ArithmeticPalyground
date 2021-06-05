@@ -17,7 +17,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-
         BST<Integer> bst = new BST<>();
         Random random = new Random();
 
@@ -25,10 +24,11 @@ public class Main {
 
         for(int i = 0 ; i < n ; i ++)
             bst.add(random.nextInt(n));
+        bst.postOrder();
+        System.out.println();
+        bst.postOrderNR();
 
-        bst.inOrder();
-
-        System.out.println(bst._inOrder());
+//        System.out.println(bst._inOrder());
         // 注意, 由于随机生成的数据有重复, 所以bst中的数据数量大概率是小于n的
 
         // order数组中存放[0...n)的所有元素
