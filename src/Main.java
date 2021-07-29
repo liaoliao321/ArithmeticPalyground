@@ -2,12 +2,28 @@ public class Main {
 
 
     public static void main(String[] args) {
-        int[] array = {2,0,2,1,1,0};
-        quickSort(array, 0, array.length - 1);
-        for (int i : array)
-            System.out.print(i + ",");
+//        int[] array = {2,0,2,1,1,0};
+//        quickSort(array, 0, array.length - 1);
+//        for (int i : array)
+//            System.out.print(i + ",");
+
+
+        System.out.println(tryCatch());
 
     }
+
+    private static String tryCatch() {
+        try{
+            System.out.println("try");
+            return "return from try";
+        }catch (Exception e){
+            System.out.println("exp");
+        }finally {
+            System.out.println("finally");
+        }
+        return "";
+    }
+
     private static String fa(String a){
         a = "Rose Dawson";
         return a;

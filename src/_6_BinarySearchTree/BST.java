@@ -170,7 +170,7 @@ public class BST<E extends Comparable<E>> {
 
         postOrder(node.left);
         postOrder(node.right);
-        System.out.print(node.e+" ");
+        System.out.print(node.e + " ");
     }
 
     public void postOrderNR() {
@@ -217,9 +217,38 @@ public class BST<E extends Comparable<E>> {
 
             if (cur.left != null)
                 q.add(cur.left);
+
             if (cur.right != null)
                 q.add(cur.right);
         }
+    }
+
+
+    // 二分搜索树的层序遍历
+    public List<List<E>> levelOrder2() {
+
+        ArrayList<List<E>> ret = new ArrayList<>();
+        Queue<Node> q = new LinkedList<>();
+
+        q.add(root);
+        while (!q.isEmpty()) {
+            ArrayList<E> list = new ArrayList<>();
+            int size = q.size();
+            for (int i = 1; i <= size; i++) {
+
+                Node cur = q.remove();
+                list.add(cur.e);
+
+                if (cur.left != null)
+                    q.add(cur.left);
+
+                if (cur.right != null)
+                    q.add(cur.right);
+
+            }
+            ret.add(list);
+        }
+        return ret;
     }
 
     // 寻找二分搜索树的最小元素

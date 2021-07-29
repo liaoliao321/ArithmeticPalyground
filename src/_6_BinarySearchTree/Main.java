@@ -1,7 +1,10 @@
 package _6_BinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.Random;
+
+import _1_Array.Array;
+import sun.reflect.generics.tree.Tree;
+
+import java.util.*;
 
 public class Main {
 
@@ -22,11 +25,18 @@ public class Main {
 
         int n = 10;
 
-        for(int i = 0 ; i < n ; i ++)
-            bst.add(random.nextInt(n));
-        bst.postOrder();
+//        for(int i = 0 ; i < n ; i ++)
+//            bst.add(random.nextInt(n));
+        bst.add(5);
+        bst.add(3);
+        bst.add(7);
+        bst.add(2);
+        bst.add(4);
+        bst.add(6);
+        bst.add(8);
         System.out.println();
         bst.postOrderNR();
+        System.out.println(bst.levelOrder2());
 
 //        System.out.println(bst._inOrder());
         // 注意, 由于随机生成的数据有重复, 所以bst中的数据数量大概率是小于n的

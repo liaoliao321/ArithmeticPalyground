@@ -3,8 +3,8 @@ package LeetCode._461;
 /*
 https://www.cnblogs.com/findbetterme/p/10787118.html
 位运算
-偶数二进制末尾为0
-奇数二进制末尾为1
+偶数，二进制末尾为0
+奇数，二进制末尾为1
 
 &
 |
